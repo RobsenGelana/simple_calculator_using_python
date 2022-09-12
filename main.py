@@ -40,3 +40,14 @@ first_answer = calculation(num1, num2)
 
 #Test code
 print(f"{num1} {operator} {num2} = {first_answer}")
+
+# Asking the user if they want to continue with the calculation
+#if input("If you want to continue with the operation Type yes or no").lower() == 'yes':
+operator = input("Enter operator: ")
+num3 = int(input("Enter a number to continue: "))
+calculation = operations[operator]
+second_answer = calculation(first_answer, num3)
+
+#Test Code 
+print(f"{first_answer} {operator} {num3} = {second_answer}")
+
