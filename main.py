@@ -1,7 +1,5 @@
 from art import logo
 
-#print(logo)
-
 #creating a function for the operations
 
 #addition
@@ -29,30 +27,29 @@ operations = {
     '*': multiply,
 }
 
-
-num1 = int(input("Enter a number: "))
-for operator in operations:
-    print(operator)
-end_program = True 
-while end_program:
-    operator = input("Enter operator: ")
-    num2 = int(input("Enter a second number: "))
-
-    calculation = operations[operator]
-    first_answer = calculation(num1, num2)
-
-    #Test code
-    print(f"{num1} {operator} {num2} = {first_answer}")
-
-    # Asking the user if they want to continue with the calculation
-    if input("If you want to continue with the operation Type yes or no").lower() == 'yes':
+def calculator():
+    print(logo)
+    num1 = int(input("Enter a number: "))
+    for operator in operations:
+        print(operator)
+    end_program = True 
+    while end_program:
         operator = input("Enter operator: ")
-        num3 = int(input("Enter a number to continue: "))
+        num2 = int(input("Enter a second number: "))
+
         calculation = operations[operator]
-        second_answer = calculation(first_answer, num3)
-        print(f"{first_answer} {operator} {num3} = {second_answer}")
+        first_answer = calculation(num1, num2)
 
-    else:
-        end_program = False
-    #Test Code 
+        #Test code
+        print(f"{num1} {operator} {num2} = {first_answer}")
 
+        # Asking the user if they want to continue with the calculation
+        user_input = input(f"If you want to continue with {first_answer} the operation Type yes or no: ").lower()
+        if  user_input == 'yes':
+            num1 = first_answer
+        elif user_input == 'q':
+            break
+        else:
+            end_program = False
+            calculator()
+calculator()
