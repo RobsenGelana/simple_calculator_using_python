@@ -29,25 +29,30 @@ operations = {
     '*': multiply,
 }
 
+
 num1 = int(input("Enter a number: "))
 for operator in operations:
     print(operator)
-operator = input("Enter operator: ")
-num2 = int(input("Enter a second number: "))
+end_program = True 
+while end_program:
+    operator = input("Enter operator: ")
+    num2 = int(input("Enter a second number: "))
 
-calculation = operations[operator]
-first_answer = calculation(num1, num2)
+    calculation = operations[operator]
+    first_answer = calculation(num1, num2)
 
-#Test code
-print(f"{num1} {operator} {num2} = {first_answer}")
+    #Test code
+    print(f"{num1} {operator} {num2} = {first_answer}")
 
-# Asking the user if they want to continue with the calculation
-#if input("If you want to continue with the operation Type yes or no").lower() == 'yes':
-operator = input("Enter operator: ")
-num3 = int(input("Enter a number to continue: "))
-calculation = operations[operator]
-second_answer = calculation(first_answer, num3)
+    # Asking the user if they want to continue with the calculation
+    if input("If you want to continue with the operation Type yes or no").lower() == 'yes':
+        operator = input("Enter operator: ")
+        num3 = int(input("Enter a number to continue: "))
+        calculation = operations[operator]
+        second_answer = calculation(first_answer, num3)
+        print(f"{first_answer} {operator} {num3} = {second_answer}")
 
-#Test Code 
-print(f"{first_answer} {operator} {num3} = {second_answer}")
+    else:
+        end_program = False
+    #Test Code 
 
